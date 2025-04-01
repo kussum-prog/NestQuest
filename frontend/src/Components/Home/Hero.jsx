@@ -1,26 +1,34 @@
-import React from 'react';
-
+import React from "react";
+import animationData from "../Animation2.json";
+import Lottie from "lottie-react";
 
 const Hero = () => {
   return (
-    <div className={`flex  h-160 w-full  rounded m-1 justify-center items-center bg-linear-to-b from-zinc-900 
-    via-zinc-800 `}>
-      <div className={`  flex flex-col   h-100 w-200 sm:w-120  text-white  justify-center items-center text-4xl font-bold font-poppins rounded   ml-4 lg:w-200   `}>
-        "Where Comfort Meets Convenience!"
-        <div className='w-170 flex justify-center  '>
-          <img src='curve.png' className='h-20 w-200 ml-1' />
-        </div>
-        <div className='w-170 flex justify-center'>
-          <p className='text-sm '>
-            "Your Nest, Your Quest – Find It Today!"
-          </p>
-        </div>
-        <div className='relative max-w--[23rem] mx-auto md:max-w-5xl xl-mb:mb-24'>
-          <div className='relative z-1 p-0.5 rounded-2xl '>
+    <div className="relative flex flex-col h-screen w-screen justify-center items-center overflow-hidden">
+      {/* Lottie Background */}
+      <div className="absolute h-140 inset-0 flex justify-center items-center z-10">
+        <Lottie animationData={animationData} loop={true} className="w-200 h-100 object-cover" />
+      </div>
 
-            <input className='w-70 h-10 p-5 bg-white  m-6 rounded-full text-black text-sm animate-bounce ' type='text' placeholder="Enter Your Location..." src='home_loc.svg' />
-          </div>
+      {/* Hero Content */}
+      <div className="relative flex flex-col text-white text-center mt-70 text-4xl font-bold font-poppins z-10">
+        <h1>"Where Comfort Meets Convenience!"</h1>
 
+        {/* Curve Image */}
+        <div className="flex justify-center mt-4">
+          <img src="curve.png" className="h-[20px] w-[300px]" alt="Curve Decoration" />
+        </div>
+
+        {/* Subtitle */}
+        <p className="text-sm mt-2">"Your Nest, Your Quest – Find It Today!"</p>
+
+        {/* Search Input */}
+        <div className="relative mt-4">
+          <input
+            className="w-[400px] h-10 p-5 bg-white rounded-full text-black text-sm text-center animate-bounce"
+            type="text"
+            placeholder="Enter Your Location..."
+          />
         </div>
       </div>
     </div>

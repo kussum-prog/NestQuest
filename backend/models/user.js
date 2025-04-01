@@ -19,7 +19,12 @@ const userSchema = new mongoose.Schema({
     address:{
         type: String,
         required: true,
+    },
+    jwtToken:{
+        type:String,
+        required:true,
     }
+
 });
 
 module.exports = model('User', userSchema,"users");

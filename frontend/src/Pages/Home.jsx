@@ -4,6 +4,8 @@ import Header from "../Components/Home/Header";
 import Cards from '../Components/Cards';
 import Footer from '../Pages/Footer';
 import Use from './Use';
+import RentOutProperty from './RentOutProperty';
+
 
 
 const Home = () => {
@@ -12,7 +14,9 @@ const Home = () => {
       <Header />
       <Hero />
       <Cards />
+      <RentOutProperty />
       <Use />
+      <header />
       <Footer />
     </div>
   );

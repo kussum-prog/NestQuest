@@ -40,22 +40,22 @@ const Footer = () => {
           <div>
             <h3 className="font-bold">Company</h3>
             <ul className="text-white mt-2 space-y-2">
-              <li><a href="#" className="hover:text-orange-500">Home</a></li>
-              <li><a href="#" className="hover:text-orange-500">PG Relax Plan</a></li>
-              <li><a href="#" className="hover:text-orange-500">How it works</a></li>
-              <li><a href="#" className="hover:text-orange-500">Why choose us</a></li>
-              <li><a href="#" className="hover:text-orange-500">Contact us</a></li>
+              <li><a href="#" className="hover:text-amber-300">Home</a></li>
+              <li><a href="#" className="hover:text-amber-300">PG Relax Plan</a></li>
+              <li><a href="#" className="hover:text-amber-300">How it works</a></li>
+              <li><a href="#" className="hover:text-amber-300">Why choose us</a></li>
+              <li><a href="#" className="hover:text-amber-300">Contact us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold">Legal</h3>
             <ul className="text-white mt-2 space-y-2">
-              <li><a href="#" className="hover:text-orange-500">Terms of use</a></li>
-              <li><a href="#" className="hover:text-orange-500">Privacy policy</a></li>
-              <li><a href="#" className="hover:text-orange-500">Sitemap</a></li>
-              <li><a href="#" className="hover:text-orange-500">FAQs</a></li>
-              <li><a href="#" className="hover:text-orange-500">Blog</a></li>
-            </ul>
+              <li><a href="#" className="hover:text-amber-300">Terms of use</a></li>
+              <li><a href="#" className="hover:text-amber-300">Privacy policy</a></li>
+              <li><a href="#" className="hover:text-amber-300">Sitemap</a></li>
+              <li><a href="#" className="hover:text-amber-300">FAQs</a></li>
+              <li><a href="#" className="hover:text-amber-300">Blog</a></li>
+  </ul>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
             <input type="text" placeholder="Name" className="w-[48%] p-2 border text-white rounded-md mr-2" />
             <input type="text" placeholder="Phone Number" className="w-[48%] p-2 border rounded-md" />
             <textarea placeholder="Message" className="w-full p-2 border rounded-md mt-2"></textarea>
-            <button className="w-full mt-4 bg-amber-500 text-white py-2 rounded-md hover:bg-orange-600">
+            <button className="w-full mt-4 bg-amber-300 text-white py-2 rounded-md hover:bg-orange-600">
               Submit
             </button>
           </div>

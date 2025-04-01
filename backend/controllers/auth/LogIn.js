@@ -1,10 +1,16 @@
 const User = require("../../models/user");
 const { LogInValidation } = require("../../services/validation_schema");
 
+
 const LogIn = async (req, res, next) => {
   try {
+
+
+    
     // Validate request body
+
     const { username, password } = await LogInValidation.validateAsync(req.body);
+
 
     // Find user by username
     const existingUser = await User.findOne({ username });
@@ -15,7 +21,7 @@ const LogIn = async (req, res, next) => {
       });
     }
 
-    // Compare password directly (Only if stored as plain text - NOT RECOMMENDED)
+    // Compare password directly
     if (existingUser.password !== password) {
       return res.status(400).json({
         message: "Password is incorrect",

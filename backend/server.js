@@ -7,14 +7,17 @@ const backend = express();
 const http = require("http").Server(backend);
 const routes = require("./routes")
 
+//step1
 backend.use(express.json());
 
+//step2
 backend.use(cors({
     origin: "*",
     methods : ["GET", "PUT", "PATCH", "POST", "DELETE"]
 })
 );
 
+//step4
 backend.use(routes)
 
 

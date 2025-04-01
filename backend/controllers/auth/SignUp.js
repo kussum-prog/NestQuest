@@ -1,15 +1,25 @@
 const User = require("../../models/user");
 const { SignUpValidation} = require("../../services/validation_schema");
+const jwt = require("jsonwebtoken");
+
 
 //signUp
 const SignUp = async (req, res, next) => {
   try {
+
+    const JWT_Secret_Key=process.env.JWT_Secret_Key;
+    console.log(JWT_Secret_Key);
   
     const SignUpResponse = await SignUpValidation.validateAsync(req.body);
     
     console.log(SignUpResponse);
 
     const {username,password,email,address}=SignUpResponse;
+
+    const userInfo={username,password}
+
+    const jwtToken=jwt.sign(userInfo, JWT_Secret_Key);
+    console.log(jwtToken);
 
     const existingUsername=await User.findOne({username:username});
 
@@ -38,7 +48,8 @@ const SignUp = async (req, res, next) => {
       username:username,
       password:password,
       email:email,
-      address:address
+      address:address,
+      jwtToken:jwtToken,
     });
 
     await user.save();
