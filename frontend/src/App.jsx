@@ -6,6 +6,8 @@ import SignUp from "./Pages/SignUp"
 import Home from "./Pages/Home"
 import Hero from "./Components/Home/Hero";
 import Property from "./Pages/Property";
+import Profile from "./Pages/Profile";
+
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
         <Route exact path="/LogIn" element={<LogIn />} />
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/Property" element={<Property />} />
+        <Route exact path="/Profile" element={<Profile />} />
       </Routes>
      
       </div>

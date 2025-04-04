@@ -9,6 +9,8 @@ import Cards from '../Components/Home/Cards';
 
 
 
+
+
 const Home = () => {
   return (
     <div>
@@ -19,6 +21,7 @@ const Home = () => {
       <Use />
       <header />
       <Footer />
+     
     </div>
   );
 };

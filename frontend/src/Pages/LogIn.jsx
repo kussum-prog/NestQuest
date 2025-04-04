@@ -19,7 +19,7 @@ const LogIn = () => {
     console.log("Success:", values);
     try {
       const response = await axios.post(
-        `${baseURL}/api/auth/LogIn`,
+        `http://localhost:5000/api/auth/LogIn`,
         values
       );
       toast.success(response.data.message || "Login successful!");
