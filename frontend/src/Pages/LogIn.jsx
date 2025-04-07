@@ -31,7 +31,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex bg-black justify-center items-center min-h-screen p-4 relative">
+    <div className="flex bg-black bg-opacity-0 justify-center items-center min-h-screen p-4 relative">
       {/* Lottie Animation Outside the Form */}
       {loading && (
         <div className="absolute top-10">

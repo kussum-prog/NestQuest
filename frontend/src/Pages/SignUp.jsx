@@ -53,7 +53,7 @@ const SignUp = () => {
 
   return (
 
-    <div className='flex justify-center items-center h-screen bg-black overflow-hidden'>
+    <div className='flex justify-center items-center h-screen bg-black  overflow-hidden'>
       <div class="px-6 py-4 w-full md:w-3/6 lg:w-2/6 bg-amber-300  text-lg  justify-center  mt-2  w-2xl h-150  font-md border-black-600 border-4 rounded-2xl  layout-vertical font-family-[Times New Roman]">
         <p class=" text-xl  text-center font-extrabold">
           SignUp

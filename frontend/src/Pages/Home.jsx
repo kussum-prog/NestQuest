@@ -6,7 +6,7 @@ import Footer from '../Pages/Footer';
 import Use from './Use';
 import RentOutProperty from './RentOutProperty';
 import Cards from '../Components/Home/Cards';
-
+import styles from '../styles';
 
 
 
@@ -14,7 +14,17 @@ import Cards from '../Components/Home/Cards';
 const Home = () => {
   return (
     <div>
-      <Header />
+
+     {/* Navbar Section  */}
+     <div className={`${styles.padding} ${styles.flexcenter}`}>
+      <div className={` ${styles.boxWidth}`}>
+        <Header />
+        </div>
+     </div>
+
+
+
+
       <Hero />
       <Cards />
       <RentOutProperty />
