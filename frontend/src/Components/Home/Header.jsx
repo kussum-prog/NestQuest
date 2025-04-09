@@ -10,7 +10,8 @@ const Header = () => {
 
 
 return (
-<div className={` fixed w-full h-16 bg-zinc-900 flex items-center w-full h-16 top-0 left-0 z-50 justify-between px-6 `}>
+<div className={` fixed w-full h-16 bg-zinc-900 flex items-center w-full h-16 top-0 left-0 z-50 justify-between px-6 
+   `}>
     <div className='flex gap-1 '>
 <img src='/bird.png'  className='h-10 w-10 '/>
 {/* website Name */}

@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
     jwtToken:{
         type:String,
         required:true,
+    },
+    role:{
+        type:String,
+        default:"user",
+        enum:['admin','user'],
     }
 
 });

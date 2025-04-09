@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Button, Form, Input, Typography } from "antd";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import animationData from "../Animation .json"; 
-import baseURL from "../../axiosInstance";
+import animationData from "../Animation.json"; 
+import baseURL from "../../config";
 
 
 
@@ -19,7 +19,7 @@ const LogIn = () => {
     console.log("Success:", values);
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/auth/LogIn`,
+        `${baseURL}auth/LogIn`,
         values
       );
       toast.success(response.data.message || "Login successful!");

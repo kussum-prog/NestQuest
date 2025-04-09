@@ -15,4 +15,4 @@ const user =async(req,res) => {
       }
 }
 
-emodule.exports=user;
+module.exports=user;
