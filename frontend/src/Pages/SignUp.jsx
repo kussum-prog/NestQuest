@@ -53,12 +53,12 @@ const SignUp = () => {
 
   return (
 
-    <div className='flex justify-center items-center h-screen bg-black  overflow-hidden'>
-      <div class="px-6 py-4 w-full md:w-3/6 lg:w-2/6 bg-amber-300  text-lg  justify-center  mt-2  w-2xl h-150  font-md border-black-600 border-4 rounded-2xl  layout-vertical font-family-[Times New Roman]">
+    <div className='flex justify-center items-center h-screen bg-black  '>
+      <div class="px-6 py-4 w-full md:w-3/6 lg:w-2/6 bg-amber-300  text-lg  justify-center  mt-2  w-2xl h-200  font-md border-black-600 border-4 rounded-2xl  layout-vertical font-family-[Times New Roman]">
         <p class=" text-xl  text-center font-extrabold">
           SignUp
         </p>
-        <div className="mt-4 flex flex-row inline-block  ">
+        <div className="mt-4 flex flex-row inline-block">
           <div>
             <label htmlFor='' className="text-black font-bold mr-2">
               Username:
@@ -108,6 +108,12 @@ const SignUp = () => {
           <button className="bg-black text-center text-white mt-5  rounded-full w-40 h-8 font-bold hover:bg-blue-500  transition duration-300 ease-in-out"
             onClick={submit}>
             SignUp
+          </button>
+        </div>
+        <div className="flex flex-row justify-center items-center">
+          <button className="bg-black text-center text-white mt-5  rounded-full w-60 h-8 font-bold hover:bg-blue-500  transition duration-300 ease-in-out"
+            onClick={submit}>
+            Continue with Google
           </button>
         </div>
         <p className='flex mt-1 items-center justify-center text-zinc-200 font-semibold'>Or</p>
