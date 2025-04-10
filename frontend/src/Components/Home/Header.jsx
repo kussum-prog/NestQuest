@@ -1,73 +1,57 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import styles from '../../styles';
-import {useState} from 'react';
-
-
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const [isOpen,setIsOpen]=useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+  return (
+    <header className="fixed top-0 left-0 w-full bg-zinc-900 text-white z-50 shadow-md">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+        {/* Logo + Website Name */}
+        <div className="flex items-center gap-2">
+          <img src="/bird.png" alt="logo" className="h-10 w-10" />
+          <h1 className="text-amber-300 text-xl sm:text-2xl font-bold">NestQuest</h1>
+        </div>
 
-return (
-<div className={` fixed w-full h-16 bg-zinc-900 flex items-center w-full h-16 top-0 left-0 z-50 justify-between px-6 
-   `}>
-    <div className='flex gap-1 '>
-<img src='/bird.png'  className='h-10 w-10 '/>
-{/* website Name */}
-<h1 className="text-amber-300 text-2xl flex flex-row pt-2 font-bold md:pt-2 ">NestQuest</h1>
-</div>
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex gap-4 items-center">
+          <Link to="/" className="hover:text-amber-300 transition">Home</Link>
+          <Link to="/Property" className="hover:text-amber-300 transition">Post Property</Link>
+          <Link to="/SignUp" className="hover:text-amber-300 transition">Sign Up</Link>
+          <Link
+            to="/LogIn"
+            className="bg-yellow-300 text-black px-3 py-1 rounded-md hover:bg-slate-300 transition"
+          >
+            Log In
+          </Link>
+          <Link
+            to="/Profile"
+            className="bg-yellow-300 text-black px-3 py-1 rounded-md hover:bg-slate-300 transition"
+          >
+            Profile
+          </Link>
+        </nav>
 
-{/* Navbar Links */}
-<div className=" hidden md:flex space-x-4">
-<Link to="/" className="text-white  flex items-center group justify-center p-1 hover:text-amber-300 transition duration-300">
-Home
-<span className="absolute h-0.5 bg-yellow-400 transition-all  group-hover:w-15 group-hover:bottom-0.5"></span>
-</Link>
-<Link to="/Property" className="text-white flex items-center group justify-center p-1 hover:text-amber-300 transition duration-300">
-Post Your Property
-<span className="absolute h-0.5 bg-yellow-400 transition-all group-hover:w-40 group-hover:bottom-2"></span>
-</Link>
-<Link to="/SignUp" className="text-white flex items-center group justify-center p-1 hover:text-amber-300 transition duration-300">
-SignUp
-<span className="absolute h-0.5 bg-yellow-400 transition-all  group-hover:w-15 group-hover:bottom-2"></span>
-</Link>
-<Link to="/LogIn" className="text-black text-md text-bold flex items-center justify-center  rounded-md p-2 bg-yellow-300  border-2 uppercase  hover:text-black hover:bg-slate-300  transition duration-300 mr-4  font-poppins ">
-LogIn
-</Link>
-<Link to="/Profile" className="text-black text-md text-bold flex items-center justify-center  rounded-md p-2 bg-yellow-300  border-2 uppercase  hover:text-black  hover:bg-slate-300 transition duration-300 mr-4  font-poppins">
-Profile
-</Link>
-</div>
-{/* 
-Hamburger Menu for Mobile View */}
+        {/* Hamburger Icon for Small Screens */}
+        <div className="md:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+          <span className="material-icons text-white text-3xl">
+            {isOpen ? 'close' : 'menu'}
+          </span>
+        </div>
+      </div>
 
-<div
-  className="md:hidden cursor-pointer flex flex-end"
-  onClick={() => setIsOpen(!isOpen)}
->
-  <span className="material-icons text-white  ">
-    {isOpen ? 'close':'menu'}
-  </span>
-</div>
-
-
-    {/* Mobile Menu */}
-
-    {isOpen && (
-        <ul className=' flex flex-col  mt-20 bg-black-gradient text-white w-45 h-55 rounded absolute top-0 ml-115 z-50  items-center p-2 rounded-xl sidebar '>
-            <li><a href='/' className='block px-2 py-2 hover:bg-gray-700 rounded' > Home</a></li>
-            <li><a href='/Property' className='block px-2 py-2 hover:bg-gray-700 rounded' > Post Your Property</a></li>
-            <li><a href='/LogIn' className='block px-2 py-2 hover:bg-gray-700 rounded' > LogIn</a></li>
-            <li><a href='/SignUp' className='block px-2 py-2 hover:bg-gray-700 rounded' > SignUp</a></li>
-            <li><a href='/Profile' className='block px-2 py-2 hover:bg-gray-700 rounded' >Profile</a></li>
-
-
-        </ul>
-    )}
-
-
-</div>
-);
+      {/* Mobile Nav Menu */}
+      {isOpen && (
+        <nav className="md:hidden bg-zinc-800 px-4 py-3 space-y-2 text-white">
+          <Link to="/" className="block hover:bg-gray-700 rounded px-2 py-1">Home</Link>
+          <Link to="/Property" className="block hover:bg-gray-700 rounded px-2 py-1">Post Property</Link>
+          <Link to="/SignUp" className="block hover:bg-gray-700 rounded px-2 py-1">Sign Up</Link>
+          <Link to="/LogIn" className="block hover:bg-gray-700 rounded px-2 py-1">Log In</Link>
+          <Link to="/Profile" className="block hover:bg-gray-700 rounded px-2 py-1">Profile</Link>
+        </nav>
+      )}
+    </header>
+  );
 };
-export default Header; //navbar
+
+export default Header;

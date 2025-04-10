@@ -1,15 +1,22 @@
 const User = require("../../models/user");
 const { LogInValidation } = require("../../services/validation_schema");
+const jwt = require("jsonwebtoken");
+
 
 
 const LogIn = async (req, res, next) => {
   try {
-
-
-    
+    // Generate JWT token
+    const JWT_Secret_Key=process.env.JWT_Secret_Key;
+    console.log(JWT_Secret_Key);
     // Validate request body
 
     const { username, password } = await LogInValidation.validateAsync(req.body);
+
+        userInfo = {username,password};
+    
+        const jwtToken=jwt.sign(userInfo,JWT_Secret_Key);
+        console.log(jwtToken);
 
 
     // Find user by username
@@ -32,6 +39,7 @@ const LogIn = async (req, res, next) => {
     res.status(200).json({
       message: "User logged in successfully",
       data: { username: existingUser.username },
+      jwtToken:jwtToken,
     });
 
   } catch (error) {

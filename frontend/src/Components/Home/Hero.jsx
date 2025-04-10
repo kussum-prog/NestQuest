@@ -1,13 +1,13 @@
 import React from "react";
 import animationData from "../Animation2.json";
 import Lottie from "lottie-react";
-
+import { FaSearch} from "react-icons/fa";
 const Hero = () => {
   return (
-    <div className="relative flex flex-col h-screen w-screen justify-center items-center overflow-hidden">
+    <div className=" flex flex-col h-screen w-screen  justify-center items-center overflow-hidden ">
       {/* Lottie Background */}
-      <div className="absolute h-140 inset-0 flex justify-center items-center z-10">
-        <Lottie animationData={animationData} loop={true} className="w-200 h-100 object-cover" />
+      <div className="absolute h-140 inset-0 flex justify-center items-center  z-10">
+        <Lottie animationData={animationData} loop={true} className="w-200 h-100 object-cover   " />
       </div>
 
       {/* Hero Content */}
@@ -23,13 +23,12 @@ const Hero = () => {
         <p className="text-sm mt-2">"Your Nest, Your Quest – Find It Today!"</p>
 
         {/* Search Input */}
-        <div className="relative mt-4">
-          <input
-            className="w-[400px] h-10 p-5 bg-white rounded-full text-black text-sm text-center animate-bounce"
-            type="text"
-            placeholder="Enter Your Location..."
-          />
-        </div>
+            
+        <form className="relative mt-10 flex w-[400px] ml-28  h-10 p-1 bg-white rounded-full  text-black text-lg animate-bounce ">
+          <input placeholder=" Enter Your Location..."  className="focus:outline-none p-2 w-[360px]" />
+           <FaSearch className="  text-gray-500  w-[30px] h-6 mt-1 " />
+         
+        </form>
       </div>
     </div>
   );
