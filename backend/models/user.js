@@ -27,8 +27,8 @@ const userSchema = new mongoose.Schema({
     role:{
         type:String,
         default:"user",
-        },
+        }
 
-});
+},{ timestamps:true });
 
 module.exports = model('User', userSchema,"users");

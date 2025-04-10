@@ -30,7 +30,7 @@ const SignUp = () => {
         toast.info('Please fill all the fields');
       } else {
         console.log(Values);
-        const response = await axios.post('http://localhost:3000/api/auth/SignUp', Values);
+        const response = await axios.post('http://localhost:5000/api/auth/SignUp', Values);
         toast.success(response.data.message);
         navigate('/LogIn');
       }

@@ -1,6 +1,8 @@
 const User = require("../../models/user");
 const { SignUpValidation} = require("../../services/validation_schema");
+const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+
 
 
 //signUp
@@ -11,6 +13,7 @@ const SignUp = async (req, res, next) => {
     console.log(JWT_Secret_Key);
   
     const SignUpResponse = await SignUpValidation.validateAsync(req.body);
+
     
     console.log(SignUpResponse);
 
@@ -43,10 +46,12 @@ const SignUp = async (req, res, next) => {
         message:"Password must be greater than 5 "
       });
     }
+
+    const hashedPassword = await bcrypt.hash(password,10);
    //new user
     const user = new User({
       username:username,
-      password:password,
+      password:hashedPassword,
       email:email,
       address:address,
       jwtToken:jwtToken,
