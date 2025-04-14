@@ -5,12 +5,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import App from './App';
-import { store } from './redux/store';
+import { store,persistor } from './redux/store';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <BrowserRouter> {/* Wrap App with BrowserRouter */}
+   <PersistGate loading={null} persistor={persistor}>
+   <BrowserRouter> {/* Wrap App with BrowserRouter */}
       <App />
       <ToastContainer
         position="top-center"
@@ -25,5 +27,6 @@ createRoot(document.getElementById('root')).render(
         theme="colored"
       />
     </BrowserRouter>
+   </PersistGate>
   </Provider>
 );
