@@ -1,46 +1,46 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; 
+import "react-toastify/dist/ReactToastify.css";
 import { Button, Form, Input, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-import animationData from "../Animation.json"; 
+import animationData from "../Animation.json";
 import baseURL from "../../config";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice"
 
 const LogIn = () => {
-  const [loading, setLoading] = useState(false);
+  
+  const {loading,error} = useSelector((state)=>state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onFinish = async (values) => {
-    setLoading(true); 
-
-    console.log("Success:", values);
+    dispatch(signInStart());
     try {
-      const response = await axios.post(
-        `${baseURL}auth/LogIn`,
-        values
-      );
+     
+      const response = await axios.post(`${baseURL}auth/LogIn`, values);
+      dispatch(signInSuccess(response.data.user));
       toast.success(response.data.message || "Login successful!");
+      navigate("/");
     } catch (error) {
+      console.error("Login error:", error);
+      dispatch(signInFailure(error.response?.data?.message || "LogIn failed"));
       toast.error(error.response?.data?.message || "Login failed!");
-    } finally {
-      setLoading(false); 
     }
   };
 
   return (
     <div className="flex bg-black bg-opacity-0 justify-center items-center min-h-screen p-4 relative">
-      {/* Lottie Animation Outside the Form */}
+      {/* Lottie Animation */}
       {loading && (
-        <div className="absolute top-10">
-          <Lottie animationData={animationData} loop={true} className="w-40 h-40" />
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <Lottie animationData={animationData} loop={false} className="w-40 h-40" />
         </div>
       )}
 
       <div className="w-full max-w-md bg-amber-300 border-2 rounded-3xl shadow-lg p-8 bg-opacity-90 relative">
-       
         <Typography.Title
           className="text-center"
           style={{ fontFamily: "poppins", fontSize: "2rem" }}
@@ -56,7 +56,10 @@ const LogIn = () => {
           <Form.Item
             label="Username"
             name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[
+              { required: true, message: "Please input your username!" },
+              { min: 3, message: "Username must be at least 3 characters long!" },
+            ]}
           >
             <Input placeholder="Enter your username" />
           </Form.Item>
@@ -64,8 +67,10 @@ const LogIn = () => {
           <Form.Item
             label="Password"
             name="password"
-            style={{ fontFamily: "Times New Roman" }}
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[
+              { required: true, message: "Please input your password!" },
+              { min: 6, message: "Password must be at least 6 characters long!" },
+            ]}
           >
             <Input.Password placeholder="Enter your password" />
           </Form.Item>
@@ -76,13 +81,13 @@ const LogIn = () => {
               htmlType="submit"
               style={{
                 backgroundColor: "black",
-                width: "100%", 
+                width: "100%",
                 fontFamily: "Times New Roman",
                 borderRadius: "9999px",
               }}
-              disabled={loading}
+              loading={loading} // Add loading spinner
             >
-              {loading ? "Logging in..." : "Submit"}
+              Submit
             </Button>
           </Form.Item>
         </Form>

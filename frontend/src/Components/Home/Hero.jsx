@@ -4,9 +4,9 @@ import Lottie from "lottie-react";
 import { FaSearch} from "react-icons/fa";
 const Hero = () => {
   return (
-    <div className=" flex flex-col h-screen w-screen  justify-center items-center overflow-hidden ">
+    <div className=" flex flex-col h-screen w-screen  justify-center items-center overflow-hidden  ">
       {/* Lottie Background */}
-      <div className="absolute h-140 inset-0 flex justify-center items-center  z-10">
+      <div className="absolute h-200 inset-0 flex justify-center items-center   z-10">
         <Lottie animationData={animationData} loop={true} className="w-200 h-100 object-cover   " />
       </div>
 

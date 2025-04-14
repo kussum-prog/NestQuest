@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 
 
+
 const LogIn = async (req, res, next) => {
   try {
     // Generate JWT token

@@ -53,8 +53,8 @@ const SignUp = () => {
 
   return (
 
-    <div className='flex justify-center items-center h-screen bg-black  '>
-      <div class="px-6 py-4 w-full md:w-3/6 lg:w-2/6 bg-amber-300  text-lg  justify-center  mt-2  w-2xl h-200  font-md border-black-600 border-4 rounded-2xl  layout-vertical font-family-[Times New Roman]">
+    <div className='flex justify-center items-center h-screen bg-black mt-20 bg-opacity-0'>
+      <div class="px-6 py-4 w-full md:w-3/6 lg:w-2/6 bg-amber-300  text-lg  justify-center  mt-2  w-2xl h-170  font-md border-black-600 border-4 rounded-2xl  layout-vertical font-family-[Times New Roman]">
         <p class=" text-xl  text-center font-extrabold">
           SignUp
         </p>
@@ -81,11 +81,11 @@ const SignUp = () => {
             onChange={change} />
         </div>
 
-        <div className="flex flex-row  inline-block mt-3 ">
+        <div className="flex flex-row  inline-block mt-3  ">
           <label htmlFor='' className="text-black  font-bold  mr-3">
             Email:
           </label>
-          <input type="email" name='email' placeholder='  abc123@gmail.com' className="w-70  h-8 bg-white ml-7 text-black outline-none  rounded"
+          <input type="email" name='email' placeholder='  abc123@gmail.com' className="w-70  h-8 bg-white ml-10 text-black outline-none  rounded"
             required
             value={Values.email}
             onChange={change}
@@ -97,7 +97,7 @@ const SignUp = () => {
           <label htmlFor='' className="text-black  font-bold  mr-3">
             Address:
           </label>
-          <textArea rows={8} cols={40} name='address' placeholder='  Enter Your current Address' className="bg-white text-black outline-none  rounded  "
+          <textArea rows={8} cols={40} name='address' placeholder='  Enter Your current Address' className="bg-white text-black outline-none  rounded  ml-4 mt-3"
             required
             value={Values.address}
             onChange={change}

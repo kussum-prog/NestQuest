@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const {currentUser} = useSelector(state => state.user)
 
   return (
     <header className="fixed top-0 left-0 w-full bg-zinc-900 text-white z-50 shadow-md">

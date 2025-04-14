@@ -11,7 +11,7 @@ const SignUp = async (req, res, next) => {
 
     const JWT_Secret_Key=process.env.JWT_Secret_Key;
     console.log(JWT_Secret_Key);
-  
+   
     const SignUpResponse = await SignUpValidation.validateAsync(req.body);
 
     
@@ -48,6 +48,7 @@ const SignUp = async (req, res, next) => {
     }
 
     const hashedPassword = await bcrypt.hash(password,10);
+    
    //new user
     const user = new User({
       username:username,
