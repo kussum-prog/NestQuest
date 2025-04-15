@@ -9,6 +9,7 @@ const checkAuth = require("../../middlewares/checkAuth.js")
 route.get("/user",checkAuth,user)
 route.post("/LogIn", LogIn)
 route.post("/SignUp", SignUp)
+route.delete("/delete",checkAuth,user)
 
 
 

@@ -45,7 +45,7 @@ const Header = () => {
 
       {/* Mobile Nav Menu */}
       {isOpen && (
-        <nav className="md:hidden bg-zinc-800 px-4 py-3 space-y-2 text-white">
+        <nav className="md:hidden bg-zinc-800 h-45 rounded w- text-white">
           <Link to="/" className="block hover:bg-gray-700 rounded px-2 py-1">Home</Link>
           <Link to="/Property" className="block hover:bg-gray-700 rounded px-2 py-1">Post Property</Link>
           <Link to="/SignUp" className="block hover:bg-gray-700 rounded px-2 py-1">Sign Up</Link>
