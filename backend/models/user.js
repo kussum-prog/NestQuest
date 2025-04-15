@@ -27,7 +27,11 @@ const userSchema = new mongoose.Schema({
     role:{
         type:String,
         default:"user",
-        }
+        },
+    avatar:{
+        type:String,
+        default:"user.png"
+    }
 
 },{ timestamps:true });
 

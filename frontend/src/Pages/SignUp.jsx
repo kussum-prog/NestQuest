@@ -60,7 +60,7 @@ const SignUp = () => {
         </p>
         <div className="mt-4 flex flex-row inline-block">
           <div>
-            <label htmlFor='' className="text-black font-bold mr-2">
+            <label htmlFor='' className="text-black  mr-2">
               Username:
             </label>
             <input type="text" placeholder='Enter Your Name' minLength={6} className="w-70  h-8 mt-2 bg-white  text-black  p-2 outline-none  rounded"
@@ -71,7 +71,7 @@ const SignUp = () => {
           </div>
         </div>
         <div className="flex flex-row  inline-block mt-3 ">
-          <label htmlFor='' className="text-black  font-bold  mr-3">
+          <label htmlFor='' className="text-black    mr-3">
             Password:
           </label>
           <input type="password" name='password' placeholder='  Enter Your Password' className="w-70  h-8 bg-white text-black outline-none  rounded"
@@ -82,7 +82,7 @@ const SignUp = () => {
         </div>
 
         <div className="flex flex-row  inline-block mt-3  ">
-          <label htmlFor='' className="text-black  font-bold  mr-3">
+          <label htmlFor='' className="text-black    mr-3">
             Email:
           </label>
           <input type="email" name='email' placeholder='  abc123@gmail.com' className="w-70  h-8 bg-white ml-10 text-black outline-none  rounded"
@@ -94,7 +94,7 @@ const SignUp = () => {
         </div>
 
         <div className="flex flex-row  inline-block mt-3 ">
-          <label htmlFor='' className="text-black  font-bold  mr-3">
+          <label htmlFor='' className="text-black    mr-3">
             Address:
           </label>
           <textArea rows={8} cols={40} name='address' placeholder='  Enter Your current Address' className="bg-white text-black outline-none  rounded  ml-4 mt-3"
@@ -104,20 +104,20 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="flex flex-row justify-center items-center">
-          <button className="bg-black text-center text-white mt-5  rounded-full w-40 h-8 font-bold hover:bg-blue-500  transition duration-300 ease-in-out"
+        <div>
+          <button className="bg-black text-center text-white mt-5  rounded-full w-95 ml-4 h-8  hover:bg-blue-500  transition duration-300 ease-in-out"
             onClick={submit}>
             SignUp
           </button>
         </div>
-        <div className="flex flex-row justify-center items-center">
-          <button className="bg-black text-center text-white mt-5  rounded-full w-60 h-8 font-bold hover:bg-blue-500  transition duration-300 ease-in-out"
+        <div>
+          <button className="bg-black text-center text-white mt-5 ml-4 rounded-full w-95 h-8 hover:bg-blue-500  transition duration-300 ease-in-out"
             onClick={submit}>
             Continue with Google
           </button>
         </div>
-        <p className='flex mt-1 items-center justify-center text-zinc-200 font-semibold'>Or</p>
-        <p className='flex mt-1 items-center justify-center text-blue-500 font-semibold'>
+        <p className='ml-50 mt-1 items-center justify-center text-zinc-200 font-semibold'>Or</p>
+        <p className='ml-15 mt-1 items-center justify-center text-blue-500 font-semibold'>
           Already have an account? &nbsp;
           <Link to="/LogIn" className='hover:text-black  transition duration-300'><u>LogIn</u></Link>
         </p>
