@@ -10,7 +10,7 @@ const GetUserInfo =require("../../controllers/auth/GetUserInfo.js")
 route.get("/user",checkAuth,user)
 route.post("/LogIn", LogIn)
 route.post("/SignUp", SignUp)
-route.get("/get-user-info",checkAuth,GetUserInfo)
+route.get("/get-user-info",GetUserInfo)
 
 
 
