@@ -7,7 +7,7 @@ import Home from "./Pages/Home"
 import Hero from "./Components/Home/Hero";
 import Property from "./Pages/Property";
 import Profile from "./Pages/Profile";
-import PrivateRoute from './Components/PrivateRoute'
+
 
 
 const App = () => {
@@ -20,9 +20,9 @@ const App = () => {
         <Route exact path="/LogIn" element={<LogIn />} />
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/Property" element={<Property />} />
-        <Route element={<PrivateRoute />}>
+      
         <Route exact path="/Profile" element={<Profile />} />
-        </Route>
+        
       </Routes>
      
       </div>
