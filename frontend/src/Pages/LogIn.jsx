@@ -9,13 +9,14 @@ import animationData from "../Animation.json";
 import baseURL from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice"
+import OAuth from "../Components/OAuth";
 
 const LogIn = () => {
   
   const {loading,error} = useSelector((state)=>state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+ 
   const onFinish = async (values) => {
     dispatch(signInStart());
     try {
@@ -74,8 +75,9 @@ const LogIn = () => {
           >
             <Input.Password placeholder="Enter your password" />
           </Form.Item>
-
+         
           <Form.Item className="text-center">
+           
             <Button
               type="primary"
               htmlType="submit"
@@ -90,6 +92,10 @@ const LogIn = () => {
               Submit
             </Button>
           </Form.Item>
+
+          <OAuth />
+
+          
         </Form>
 
         <p className="flex mt-0 items-center justify-center text-black font-semibold">

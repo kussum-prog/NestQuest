@@ -110,12 +110,7 @@ const SignUp = () => {
             SignUp
           </button>
         </div>
-        <div>
-          <button className="bg-black text-center text-white mt-5 ml-4 rounded-full w-95 h-8 hover:bg-blue-500  transition duration-300 ease-in-out"
-            onClick={submit}>
-            Continue with Google
-          </button>
-        </div>
+      
         <p className='ml-50 mt-1 items-center justify-center text-zinc-200 font-semibold'>Or</p>
         <p className='ml-15 mt-1 items-center justify-center text-blue-500 font-semibold'>
           Already have an account? &nbsp;

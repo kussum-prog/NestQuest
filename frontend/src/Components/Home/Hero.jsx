@@ -2,6 +2,8 @@ import React from "react";
 import animationData from "../Animation2.json";
 import Lottie from "lottie-react";
 import { FaSearch} from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <div className=" flex flex-col h-screen w-screen  justify-center items-center overflow-hidden  ">
@@ -26,7 +28,9 @@ const Hero = () => {
             
         <form className="relative mt-10 flex w-[400px] ml-28  h-10 p-1 bg-white rounded-full  text-black text-lg animate-bounce ">
           <input placeholder=" Enter Your Location..."  className="focus:outline-none p-2 w-[360px]" />
-           <FaSearch className="  text-gray-500  w-[30px] h-6 mt-1 " />
+        <Link to="/Search">
+        <FaSearch   className="  text-gray-500  w-[30px] h-6 mt-1 " />
+        </Link>
          
         </form>
       </div>

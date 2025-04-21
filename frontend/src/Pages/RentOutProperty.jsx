@@ -1,4 +1,6 @@
 import React from "react";
+import Property from "./Property";
+import { Link } from "react-router";
 
 const RentOutProperty = () => {
   return (
@@ -21,9 +23,9 @@ const RentOutProperty = () => {
           everything tenants need is available on our portal. Upload your
           property in a few easy steps and save time and money with NestQuest.
         </p>
-        <button className="bg-amber-300 text-white py-3 px-6 rounded-md font-semibold hover:bg-orange-600 transition-all">
+        <Link to="/property" className="bg-amber-300 text-white py-3 px-6 rounded-md font-semibold hover:bg-orange-600 transition-all">
           Post Property For Free
-        </button>
+        </Link>
       </div>
     </section>
   );
