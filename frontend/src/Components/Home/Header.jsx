@@ -35,12 +35,10 @@ const Header = () => {
           </Link> */}
             {
             currentUser ? (
-              <Link
-            to="/Profile"
-            className="bg-yellow-300 text-black px-3 py-1 rounded-md hover:bg-slate-300 transition"
-          >
-            Profile
-          </Link> 
+              <Link to="/profile">
+             <img   src={currentUser.avatar} alt='profile image'className='rounded-full h-7 w-7 object-cover' />
+             </Link>
+           
             ) : (
               <Link
                 to="/LogIn"
