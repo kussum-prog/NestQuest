@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 const verifyAdmin = async (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
-
+console.log("frontend sa token aa gya",token)
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
   try {

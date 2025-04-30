@@ -14,8 +14,6 @@ const persistConfig = {
 
 const persistedReducer=persistReducer(persistConfig,rootReducer)
 
-
-
 export const store = configureStore({
     reducer:persistedReducer,
     // Adding the userReducer to the store

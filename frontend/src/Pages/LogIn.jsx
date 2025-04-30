@@ -13,21 +13,23 @@ import OAuth from "../Components/OAuth";
 
 const LogIn = () => {
   
+  
   const {loading,error} = useSelector((state)=>state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
  
   const onFinish = async (values) => {
-    dispatch(signInStart());
+    
     try {
-     
+      dispatch(signInStart());
       const response = await axios.post(`${baseURL}auth/LogIn`, values);
       dispatch(signInSuccess(response.data.user));
       toast.success(response.data.message || "Login successful!");
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
-      dispatch(signInFailure(error.response?.data?.message || "LogIn failed"));
+      dispatch(signInFailure(error.response?.data?.message 
+        || "LogIn failed"));
       toast.error(error.response?.data?.message || "Login failed!");
     }
   };

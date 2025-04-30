@@ -19,12 +19,14 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+
   const change = (e) => {
     const { name, value } = e.target;
     setValues({ ...Values, [name]: value });
   };
 
-  const submit = async () => {
+  const submit = async (e) => {
+    e.preventDefault(); 
     try {
       if (Values.username === "" || Values.password === "" || Values.email === "" || Values.address === "") {
         toast.info('Please fill all the fields');
@@ -97,7 +99,7 @@ const SignUp = () => {
           <label htmlFor='' className="text-black    mr-3">
             Address:
           </label>
-          <textArea rows={8} cols={40} name='address' placeholder='  Enter Your current Address' className="bg-white text-black outline-none  rounded  ml-4 mt-3"
+          <textarea rows={8} cols={40} name='address' placeholder='  Enter Your current Address' className="bg-white text-black outline-none  rounded  ml-4 mt-3"
             required
             value={Values.address}
             onChange={change}

@@ -8,16 +8,19 @@ const checkAuth = require("../../middlewares/checkAuth.js")
 const GetUserInfo =require("../../controllers/auth/GetUserInfo.js")
 const {verifyAdmin} = require("../../middlewares/verifyAdmin.js");
 const {DeleteUser}= require("../../controllers/auth/DeleteUser.js")
-const {property}= require("../../controllers/auth/property.js")
+const Google =require("../../controllers/auth/Google.js");
+// const {property}= require("../../controllers/auth/property.js")
+// const {Rooms} = require("../../controllers/auth/Rooms.js")
 
 
 route.get("/user",checkAuth,user)
 route.post("/LogIn", LogIn)
 route.post("/SignUp", SignUp)
 route.get("/get-user-info",GetUserInfo)
-route.delete('/users/:id',verifyAdmin,DeleteUser);
-route.get("/rooms",Rooms.js);
-router.post("/property", upload.array("images"),property);
+route.delete('/DeleteUser/:id',DeleteUser);
+route.post('/google',Google);
+// route.get("/rooms",Rooms);
+// route.post("/property", upload.array("images"),property);
 
 
 

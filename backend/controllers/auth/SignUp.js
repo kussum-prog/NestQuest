@@ -1,73 +1,62 @@
 const User = require("../../models/user");
-const { SignUpValidation} = require("../../services/validation_schema");
-const bcrypt = require('bcrypt');
+const { SignUpValidation } = require("../../services/validation_schema");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
-//signUp
 const SignUp = async (req, res, next) => {
   try {
-
-    const JWT_Secret_Key=process.env.JWT_Secret_Key;
+    const JWT_Secret_Key = process.env.JWT_Secret_Key;
     console.log(JWT_Secret_Key);
-   
-    const SignUpResponse = await SignUpValidation.validateAsync(req.body);
 
-    
+    // Validate request body
+    const SignUpResponse = await SignUpValidation.validateAsync(req.body);
     console.log(SignUpResponse);
 
-    const {username,password,email,address}=SignUpResponse;
+    const { username, password, email, address } = SignUpResponse;
 
-    const userInfo={username,password}
+    // Check if username or email already exists
+    const existingUser = await User.findOne({
+      $or: [{ username: username }, { email: email }],
+    });
+    if (existingUser) {
+      if (existingUser.username === username) {
+        return res.status(400).json({ message: "Username already exists" });
+      }
+      if (existingUser.email === email) {
+        return res.status(400).json({ message: "Email already exists" });
+      }
+    }
 
-    const jwtToken=jwt.sign(userInfo, JWT_Secret_Key);
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Generate JWT token
+    const userInfo = { username, email };
+    const jwtToken = jwt.sign(userInfo, JWT_Secret_Key);
     console.log(jwtToken);
 
-    const existingUsername=await User.findOne({username:username});
-
-    //existing username
-    if(existingUsername){
-      return res.status(400).json({
-        message:"Username already exists"
-      });
-    }
-
-    //existing email
-    const existingEmail = await User.findOne({email:email});
-    if(existingEmail){
-      return res.status(400).json({
-        message:"Email already exists"});
-    }
-
-    //password length
-    if(password.length <= 5){
-      return res.status(400).json({
-        message:"Password must be greater than 5 "
-      });
-    }
-
-    const hashedPassword = await bcrypt.hash(password,10);
-    
-   //new user
+    // Create new user
     const user = new User({
-      username:username,
-      password:hashedPassword,
-      email:email,
-      address:address,
-      jwtToken:jwtToken,
+      username: username,
+      password: hashedPassword,
+      email: email,
+      address: address,
+      jwtToken: jwtToken,
     });
 
     await user.save();
-    
-//user sign up successfully 
-    res.status(200).json({
-      success:true,
-      message:"User Sign Up successfully",
-      data: SignUpResponse,
-    })
 
-    //error 
+    // User sign-up successful
+    res.status(200).json({
+      success: true,
+      message: "User Sign Up successfully",
+      data: { username, email, address },
+    });
   } catch (error) {
+    if (error.isJoi) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+    console.error("SignUp error:", error);
     next(error);
   }
 };
