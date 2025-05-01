@@ -8,6 +8,8 @@ import Hero from "./Components/Home/Hero";
 import Property from "./Pages/Property";
 import Profile from "./Pages/Profile";
 import PrivateRoute from "./Components/PrivateRoute";
+import Users from "./Components/Profile/Users";
+import Edit from "./Components/Profile/Edit";
 
 
 
@@ -25,6 +27,9 @@ const App = () => {
         <Route exact path="/Profile" element={<Profile />} />
         
         </Route>
+        <Route path="/Users" element={<Users />} />
+        <Route path="/Edit" element={<Edit />} />
+
       </Routes>
      
       </div>

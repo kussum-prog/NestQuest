@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import Dashboard from './Dashboard';
+
 import { Home, Settings, Users, BarChart2, Menu, BedDouble, DoorOpen } from 'lucide-react';
 
 const Sidebar = () => {

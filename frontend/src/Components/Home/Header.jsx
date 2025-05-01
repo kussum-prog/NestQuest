@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-zinc-900 text-white z-50 shadow-md">
-      <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+      <div className="max-w-screen-xl mx-auto flex justify-between md:py-4">
         {/* Logo + Website Name */}
         <div className="flex items-center gap-2">
           <img src="/bird.png" alt="logo" className="h-10 w-10" />
@@ -36,7 +36,7 @@ const Header = () => {
             {
             currentUser ? (
               <Link to="/profile">
-             <img   src={currentUser.avatar} alt='profile image'className='rounded-full h-7 w-7 object-cover' />
+             <img   src={currentUser.avatar} alt='profile_image' className='rounded-full h-7 w-7 object-cover bg-white' />
              </Link>
            
             ) : (
